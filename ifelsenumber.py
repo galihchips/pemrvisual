@@ -4,6 +4,22 @@ from matplotlib import pyplot as plt
 #FUNCTION TO ADD TEXT TO AN IMAGE
 def add_text_to_image(image, pos_y, pos_x, ch, R, G, B, ukuran_teks):
 
+    char_d = np.array([[1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0], \
+                       [1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0], \
+                       [1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0], \
+                       [1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0], \
+                       [1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0], \
+                       [1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0], \
+                       [1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0], \
+                       [1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0], \
+                       [1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0], \
+                       [1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0], \
+                       [1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0], \
+                       [1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0], \
+                       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0], \
+                       [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]])
+
+
     char_0 = np.array([[0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0], \
                        [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0], \
                        [0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0], \
@@ -169,7 +185,7 @@ def add_text_to_image(image, pos_y, pos_x, ch, R, G, B, ukuran_teks):
                        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0],\
                        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0]])
 
-    if ch == "0": char = char_0
+    if ch == "d": char = char_d
     if ch == "1": char = char_1
     if ch == "2": char = char_2
 
@@ -218,11 +234,11 @@ R = int(0); G = int(0); B = int(0)
 ukuran = 12
 
 #CALL THE FUNCTION FOR ADDING THE TEXT
-gambar_dan_teks = add_text_to_image(latar_putih, pos_y, pos_x, "0", R, G, B, ukuran)
-pos_x = pos_x + 12
-gambar_dan_teks = add_text_to_image(latar_putih, pos_y, pos_x, "1", R, G, B, ukuran)
-pos_x = pos_x + 7
-gambar_dan_teks = add_text_to_image(latar_putih, pos_y, pos_x, "2", R, G, B, ukuran)
+gambar_dan_teks = add_text_to_image(latar_putih, pos_y, pos_x, "d", R, G, B, ukuran)
+# pos_x = pos_x + 12
+# gambar_dan_teks = add_text_to_image(latar_putih, pos_y, pos_x, "1", R, G, B, ukuran)
+# pos_x = pos_x + 7
+# gambar_dan_teks = add_text_to_image(latar_putih, pos_y, pos_x, "2", R, G, B, ukuran)
 
 #SHOW THE RESULT
 plt.imsave("gambar_dan_teks.jpg", gambar_dan_teks)
