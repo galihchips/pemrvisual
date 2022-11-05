@@ -32,7 +32,7 @@ def add_text_to_image(image, pos_y, pos_x, i, ch, R, G, B, ukuran_teks):
 #====================================================================================
 #USER ENTRIES
 #====================================================================================
-Y = 1000; X = 1000                                    #Resolution of the whole image.
+Y = 400; X = 400                                    #Resolution of the whole image.
 
 #====================================================================================
 #MAIN PROGRAM
@@ -49,11 +49,20 @@ pos_y = start_y; pos_x = start_x
 R = int(0); G = int(0); B = int(0)
 ukuran = start_y + start_x
 #CALL THE FUNCTION FOR ADDING THE TEXT
-character = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "W", "X", "Y", "Z"]
+character = list()
 
 for idx, x in enumerate(character):
     gambar_dan_teks = add_text_to_image(latar_putih, pos_y, pos_x, idx, x, R, G, B, ukuran)
-    pos_x = pos_x + 4 if idx == 8 else pos_x + 12
+    if idx == 8:
+        pos_x = pos_x + 4
+    elif idx == 25:
+        pos_y = pos_y + 20
+        pos_x = start_x
+    elif idx == 51 :
+        pos_y = pos_y + 20
+        pos_x = start_x
+    else:
+        pos_x = pos_x + 12
 
 #SHOW THE RESULT
 plt.imsave("gambar_dan_teks.jpg", gambar_dan_teks)
